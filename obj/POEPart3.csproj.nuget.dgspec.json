@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3\\POEPart3.csproj": {}
+    "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3\\POEPart3.csproj": {
+    "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3\\POEPart3.csproj",
+        "projectUniqueName": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3.csproj",
         "projectName": "POEPart3",
-        "projectPath": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3\\POEPart3.csproj",
+        "projectPath": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3.csproj",
         "packagesPath": "C:\\Users\\robbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\POEPart3\\obj\\",
+        "outputPath": "C:\\Users\\robbi\\Desktop\\UNI\\Bachelors of Computer & Information Sciences\\Year 2\\Semester 1\\Programming 2A (PROG6221)\\Rider Programming 2A\\Assessments\\POEPart3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\robbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
