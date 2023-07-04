@@ -21,7 +21,7 @@
                     <Button Content="Clear Data" Click="btnClearData_Click" Margin="5"/>
                 </StackPanel>
 
-                <ListView x:Name="lvRecipes" Margin="0,5">
+                <ListView x:Name="lvRecipes" Margin="0,5" SelectionChanged="lvRecipes_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Recipe Name" DisplayMemberBinding="{Binding Name}"/>

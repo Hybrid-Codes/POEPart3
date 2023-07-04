@@ -64,9 +64,6 @@ namespace POEPart3
             }
         }
         
-       
-
-
         private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
         {
             if (selectedRecipe == null)
@@ -119,6 +116,29 @@ namespace POEPart3
 
             CalculateTotalCalories();
         }
+        
+        private void btnAddStep_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedRecipe == null)
+            {
+                MessageBox.Show("Please select a recipe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            string stepText = txtStep.Text.Trim();
+            if (string.IsNullOrEmpty(stepText))
+            {
+                MessageBox.Show("Please enter a recipe step.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            RecipeStep step = new RecipeStep { Step = stepText };
+            selectedRecipe.Steps.Add(step);
+            lbSteps.ItemsSource = selectedRecipe.Steps;
+            lbSteps.Items.Refresh();
+
+            txtStep.Text = string.Empty;
+        }
 
         private void lvRecipes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -127,14 +147,23 @@ namespace POEPart3
 
             if (selectedRecipe != null)
             {
+                // Populate the ingredients
                 lvIngredients.ItemsSource = selectedRecipe.Ingredients;
                 lvIngredients.Items.Refresh();
                 CalculateTotalCalories();
+
+                // Populate the steps
+                lbSteps.ItemsSource = selectedRecipe.Steps;
+                lbSteps.Items.Refresh();
             }
             else
             {
                 lvIngredients.ItemsSource = null;
                 txtTotalCalories.Text = string.Empty;
+
+                // Clear the steps
+                lbSteps.ItemsSource = null;
+                lbSteps.Items.Clear();
             }
         }
 
@@ -153,8 +182,7 @@ namespace POEPart3
             lvRecipes.ItemsSource = filteredRecipes;
             lvRecipes.Items.Refresh();
         }
-
-
+        
         private void CalculateTotalCalories()
         {
             int totalCalories = selectedRecipe.Ingredients.Sum(i => i.Calories);
@@ -190,29 +218,6 @@ namespace POEPart3
             txtFilterIngredientName.Text = string.Empty;
             txtFilterFoodGroup.Text = string.Empty;
             txtFilterMaxCalories.Text = string.Empty;
-        }
-
-        private void btnAddStep_Click(object sender, RoutedEventArgs e)
-        {
-            if (selectedRecipe == null)
-            {
-                MessageBox.Show("Please select a recipe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            string stepText = txtStep.Text.Trim();
-            if (string.IsNullOrEmpty(stepText))
-            {
-                MessageBox.Show("Please enter a recipe step.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            RecipeStep step = new RecipeStep { Step = stepText };
-            selectedRecipe.Steps.Add(step);
-            lbSteps.ItemsSource = selectedRecipe.Steps;
-            lbSteps.Items.Refresh();
-
-            txtStep.Text = string.Empty;
         }
     }
 }
