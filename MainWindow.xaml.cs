@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -14,8 +15,10 @@ namespace POEPart3
         {
             InitializeComponent();
             recipes = new List<Recipe>();
-            selectedRecipe = null;
+            originalRecipes = new List<Recipe>(); // Initialize the originalRecipes list
             lvRecipes.ItemsSource = recipes;
+            lvIngredients.ItemsSource = null;
+            lbSteps.ItemsSource = null;
         }
 
         private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
@@ -32,7 +35,6 @@ namespace POEPart3
             recipes = recipes.OrderBy(r => r.Name).ToList();
             lvRecipes.ItemsSource = recipes;
             lvRecipes.Items.Refresh();
-
             txtRecipeName.Text = string.Empty;
 
             // Set the newly added recipe as the selected recipe
@@ -167,21 +169,33 @@ namespace POEPart3
             }
         }
 
+        private List<Recipe> originalRecipes;
+
         private void btnFilter_Click(object sender, RoutedEventArgs e)
         {
-            string ingredientNameFilter = txtFilterIngredientName.Text.Trim();
-            string foodGroupFilter = txtFilterFoodGroup.Text.Trim();
-            int maxCaloriesFilter;
-            int.TryParse(txtFilterMaxCalories.Text.Trim(), out maxCaloriesFilter);
 
-            var filteredRecipes = recipes.Where(r =>
-                r.Name.ToLower().Contains(ingredientNameFilter.ToLower()) &&
-                r.Ingredients.Any(i => i.FoodGroup.ToLower().Contains(foodGroupFilter.ToLower())) &&
-                (maxCaloriesFilter <= 0 || r.Ingredients.Sum(i => i.Calories) <= maxCaloriesFilter)).ToList();
+            try
+            {
+                string ingredientNameFilter = txtFilterIngredientName.Text.Trim();
+                string foodGroupFilter = txtFilterFoodGroup.Text.Trim();
+                int maxCaloriesFilter;
+                int.TryParse(txtFilterMaxCalories.Text.Trim(), out maxCaloriesFilter);
 
-            lvRecipes.ItemsSource = filteredRecipes;
-            lvRecipes.Items.Refresh();
+                var filteredRecipes = originalRecipes.Where(r =>
+                    r.Name.ToLower().Contains(ingredientNameFilter.ToLower()) &&
+                    r.Ingredients.Any(i => (i.FoodGroup ?? "").ToLower().Contains(foodGroupFilter.ToLower())) &&
+                    (maxCaloriesFilter <= 0 || r.Ingredients.Sum(i => i.Calories) <= maxCaloriesFilter)).ToList();
+
+                lvRecipes.ItemsSource = filteredRecipes;
+                lvRecipes.Items.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while filtering recipes: {ex.Message}", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
+
         
         private void CalculateTotalCalories()
         {
@@ -218,6 +232,8 @@ namespace POEPart3
             txtFilterIngredientName.Text = string.Empty;
             txtFilterFoodGroup.Text = string.Empty;
             txtFilterMaxCalories.Text = string.Empty;
+            
+            originalRecipes = new List<Recipe>(recipes);
         }
     }
 }
