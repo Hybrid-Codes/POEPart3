@@ -182,5 +182,29 @@ namespace POEPart3
             lvRecipes.ItemsSource = null;
             lvIngredients.ItemsSource = null;
         }
+
+        private void btnAddStep_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedRecipe == null)
+            {
+                MessageBox.Show("Please select a recipe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            string stepText = txtStep.Text.Trim();
+            if (string.IsNullOrEmpty(stepText))
+            {
+                MessageBox.Show("Please enter a recipe step.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            RecipeStep step = new RecipeStep { Step = stepText };
+            selectedRecipe.Steps.Add(step);
+            lbSteps.ItemsSource = selectedRecipe.Steps;
+            lbSteps.Items.Refresh();
+
+            txtStep.Text = string.Empty;
+        }
     }
 }
+

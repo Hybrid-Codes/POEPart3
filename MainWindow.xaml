@@ -19,7 +19,6 @@
                     <TextBox x:Name="txtScale" Width="100" Margin="5"/>
                     <Button Content="Scale Recipe" Click="btnScale_Click" Margin="5"/>
                     <Button Content="Clear Data" Click="btnClearData_Click" Margin="5"/>
-                    
                 </StackPanel>
 
                 <ListView x:Name="lvRecipes" Margin="0,5">
@@ -36,16 +35,17 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <GroupBox Header="Ingredients" Grid.Column="0">
                 <StackPanel>
                     <Label Content="Ingredient Name:"/>
                     <TextBox x:Name="txtIngredientName" Width="150" Margin="5"/>
-                    
+
                     <Label Content="Quantity:"/>
                     <TextBox x:Name="txtIngredientQuantity" Width="150" Margin="5"/>
-                    
+
                     <Label Content="Measurement:"/>
                     <TextBox x:Name="txtMeasurement" Width="150" Margin="5"/>
 
@@ -79,6 +79,24 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Recipe Steps" Grid.Column="2">
+                <StackPanel>
+                    <Label Content="Steps:"/>
+                    <ListBox x:Name="lbSteps" Margin="5">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsCompleted}" Content="{Binding Step}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Content="Add Step:"/>
+                    <TextBox x:Name="txtStep" Width="200" Margin="5"/>
+                    <Button Content="Add Step" Click="btnAddStep_Click" Margin="5"/>
                 </StackPanel>
             </GroupBox>
         </Grid>
