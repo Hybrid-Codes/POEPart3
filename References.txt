@@ -1,0 +1,9 @@
+Hejlsberg, A., Torgersen, M., Wiltamuth, S. and Golde, P., 2008. The C# programming language. Pearson Education.
+
+Sharp, John. Microsoft Visual C# 2013 Step by Step. Pearson Education, 2013.
+
+Liberty, J., 2005. Programming C#: building. NET applications with C. " O'Reilly Media, Inc.".
+
+Troelsen, A. and Olsen, A., 2012. Pro C# 5.0 and the. NET 4.5 Framework (Vol. 6). New York: Apress.
+
+Albahari, J., 2022. C# 10 in a Nutshell. " O'Reilly Media, Inc.".
