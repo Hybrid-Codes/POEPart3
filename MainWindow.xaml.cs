@@ -154,6 +154,7 @@ namespace POEPart3
             lvRecipes.Items.Refresh();
         }
 
+
         private void CalculateTotalCalories()
         {
             int totalCalories = selectedRecipe.Ingredients.Sum(i => i.Calories);
@@ -181,6 +182,14 @@ namespace POEPart3
             txtTotalCalories.Text = string.Empty;
             lvRecipes.ItemsSource = null;
             lvIngredients.ItemsSource = null;
+            // Clear the recipe steps
+            lbSteps.ItemsSource = null;
+            lbSteps.Items.Clear();
+
+            // Clear the filter text boxes
+            txtFilterIngredientName.Text = string.Empty;
+            txtFilterFoodGroup.Text = string.Empty;
+            txtFilterMaxCalories.Text = string.Empty;
         }
 
         private void btnAddStep_Click(object sender, RoutedEventArgs e)
