@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace POEPart3
 {
@@ -104,8 +105,23 @@ namespace POEPart3
                 MessageBox.Show("Please enter a valid value.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
+            string selectedFoodGroup = ((ComboBoxItem)txtFoodGroup.SelectedItem)?.Content.ToString()!;
+            if (string.IsNullOrEmpty(selectedFoodGroup))
+            {
+                MessageBox.Show("Please select a food group.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-            Ingredient ingredient = new Ingredient { Name = ingredientName, Quantity = numIngredients, Measurement = unitName, Calories = calories, FoodGroup = foodGroup };
+            Ingredient ingredient = new Ingredient 
+                { 
+                    Name = ingredientName, 
+                    Quantity = numIngredients,
+                    Measurement = unitName, 
+                    Calories = calories, 
+                    FoodGroup = foodGroup 
+                };
+            
             selectedRecipe.Ingredients.Add(ingredient);
             lvIngredients.ItemsSource = selectedRecipe.Ingredients;
             lvIngredients.Items.Refresh();

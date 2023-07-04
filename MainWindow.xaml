@@ -53,7 +53,15 @@
                     <TextBox x:Name="txtCalories" Width="150" Margin="5"/>
 
                     <Label Content="Food Group:"/>
-                    <TextBox x:Name="txtFoodGroup" Width="150" Margin="5"/>
+                    <ComboBox x:Name="txtFoodGroup" Width="150" Margin="5">
+                        <ComboBoxItem Content="Vegetables" />
+                        <ComboBoxItem Content="Fruits" />
+                        <ComboBoxItem Content="Grains" />
+                        <ComboBoxItem Content="Proteins" />
+                        <ComboBoxItem Content="Dairy" />
+                        <ComboBoxItem Content="Fats and Oils" />
+                        <ComboBoxItem Content="Other" />
+                    </ComboBox>
 
                     <Button Content="Add Ingredient" Click="btnAddIngredient_Click" Margin="5"/>
                 </StackPanel>
