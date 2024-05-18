@@ -1,9 +1,8 @@
-# POEPart3
- Repo of POEPart3
+# Repo for RecipeApp3
 
-Changes to part 3:
+Changes to RecipeApp3:
 
-Much was changed with this as a lot of the existing code from part 2 had to be altered to allow for buttons and event handlers.
+Much was changed with this as a lot of the existing code from  RecipeApp2 had to be altered to allow for buttons and event handlers.
 Most of the code was stripped only the base logic remains and even that has been heavily altered.
 This was to accommdate for the new GUI implementation using WPF. 
 The code was further optimised with all the feedback given.
